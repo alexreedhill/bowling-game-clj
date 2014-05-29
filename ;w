@@ -13,7 +13,7 @@
   (= (+ roll-1 roll-2) 10))
 
 (defn score-each-frame [frames acc]
-  (let [[roll-1 roll-2] (first frames)]
+  (let [[roll-1 roll-2] (first (first frames))]
     (cond
       (strike? roll-1) (+ acc roll-1 (first (next-rolls frames)) (second (next-rolls frames)))
       (spare? roll-1 roll-2) (+ acc roll-1 roll-2 (first (next-rolls frames)))
